@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: It perfrms poorly on bigger files of reverd and random numbers but does okey with the sorted ones.
+
+sort2 uses: Merge Sort
+
+How do you know?: It is great on all files.
+
+sort3 uses: Selection Sort
+
+How do you know?: Faster on smaller files and really poorly on bigger ones.
