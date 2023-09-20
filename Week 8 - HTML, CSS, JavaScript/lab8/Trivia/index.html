@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Trivia!</title>
+    <style>
+        /* Add your CSS styles here */
+        .correct {
+            background-color: green;
+        }
+
+        .incorrect {
+            background-color: red;
+        }
+    </style>
+    <script>
+        // Function to handle multiple-choice question
+        function checkMultipleChoiceAnswer(buttonId, isCorrect) {
+            var button = document.getElementById(buttonId);
+
+            if (isCorrect) {
+                button.classList.add('correct');
+                document.getElementById('multipleChoiceResult').innerText = 'Correct!';
+            } else {
+                button.classList.add('incorrect');
+                document.getElementById('multipleChoiceResult').innerText = 'Incorrect';
+            }
+        }
+
+        // Function to handle free response question
+        function checkFreeResponseAnswer() {
+            var userInput = document.getElementById('freeResponseInput').value;
+            var answer = 'New Zealand'; // Change this to the correct answer
+
+            if (userInput.trim().toLowerCase() === answer.toLowerCase()) {
+                document.getElementById('freeResponseInput').classList.add('correct');
+                document.getElementById('freeResponseResult').innerText = 'Correct!';
+            } else {
+                document.getElementById('freeResponseInput').classList.add('incorrect');
+                document.getElementById('freeResponseResult').innerText = 'Incorrect';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Part 1: Multiple Choice</h2>
+            <hr>
+            <!-- Multiple choice question -->
+            <h3>What is the approximate ratio of people to sheep in New Zealand?</h3>
+            <button id="choice1" onclick="checkMultipleChoiceAnswer('choice1', false)">6 people per 1 sheep</button>
+            <button id="choice2" onclick="checkMultipleChoiceAnswer('choice2', true)">3 people per 1 sheep</button>
+            <button id="choice3" onclick="checkMultipleChoiceAnswer('choice3', false)">1 person per 1 sheep</button>
+            <button id="choice4" onclick="checkMultipleChoiceAnswer('choice4', false)">1 person per 3 sheep</button>
+            <button id="choice5" onclick="checkMultipleChoiceAnswer('choice5', false)">1 person per 6 sheep</button>
+            <p id="multipleChoiceResult"></p>
+        </div>
+
+        <div class="section">
+            <h2>Part 2: Free Response</h2>
+            <hr>
+            <!-- Free response question -->
+            <h3>In which country is it illegal to own only one guinea pig, as a lone guinea pig might get lonely?</h3>
+            <input type="text" id="freeResponseInput">
+            <button onclick="checkFreeResponseAnswer()">Check Answer</button>
+            <p id="freeResponseResult"></p>
+        </div>
+    </div>
+</body>
+</html>
